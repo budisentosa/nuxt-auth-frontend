@@ -35,8 +35,19 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/markdownit',
+    '@nuxtjs/strapi'
   ],
-
+  strapi: {
+    entities: ['articles'],
+  },
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true,
+    // use: ['markdown-it-div', 'markdown-it-attrs'],
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
