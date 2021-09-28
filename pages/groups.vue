@@ -17,7 +17,7 @@
       <div class="px-2 sm:pr-2 sm:text-left">
         <div class="flex justify-between">
           <h3 class="font-bold my-3">{{ group.groupName }}</h3>
-          <h3 class="font-bold my-3">{{ group.groupName }}</h3>
+          <h3 class="font-bold my-3">{{ group.srl.level }}</h3>
 
         </div>
         <p class="my-3">{{ group.groupDescription }}</p>
