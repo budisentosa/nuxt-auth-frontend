@@ -12,18 +12,29 @@
     <div
       v-for="(group, i) in data"
       :key="i"
-      class="sm:flex sm:space-x-5 my-5 shadow-lg mx-auto w-4/5 sm:w-4/5 md:w-4/5 lg:w-1/2"
+      class="sm:flex sm:space-x-5 my-5 rounded-lg shadow-lg mx-auto w-4/5 sm:w-4/5 md:w-4/5 lg:w-1/2"
     >
-      <div class="px-2 sm:pr-2 sm:text-left">
-        <div class="flex justify-between">
-          <h3 class="font-bold my-3">{{ group.groupName }}</h3>
-          <h3 class="font-bold my-3">{{ group.srl.level }}</h3>
-
+      <div class="p-3 sm:pr-2 sm:text-left w-full flex flex-col gap-3 items-end">
+        <div class="flex justify-between w-full">
+          <h3 class="font-bold">{{ group.groupName }}</h3>
+          <div>
+            <p>Business Type :</p>
+            <h3 class="font-semibold text-gray-500">{{ group.type.name }}</h3>
+          </div>
+          <div>
+            <p>SRL Level:</p>
+            <h3 class="font-semibold text-gray-500">{{ group.srl.level }}</h3>
+          </div>
         </div>
-        <p class="my-3">{{ group.groupDescription }}</p>
-        <button class="button--green mb-4 sm:mb-0" @click="readPost(group)">
-          Read more
-        </button>
+        <div class="flex justify-between w-full">
+
+          <!-- students ga bisa dipanggil, gua rasa karena 1 group terdiri dari 3 students (kudu v-for?) -->
+          <!-- <p>Anggota:</p>
+            <h3 class="font-semibold text-gray-500">{{ group.students.angkatan }}</h3> -->
+          <button class="w-32 border rounded mt-2 px-3 py-1 sm:mb-0" @click="readPost(group)">
+            Detail
+          </button>
+        </div>
       </div>
     </div>
   </div>

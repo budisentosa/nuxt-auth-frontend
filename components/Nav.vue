@@ -9,7 +9,7 @@
     </div>
     <div v-if="$strapi.user !== null">
       <span class="border-r px-3">{{ $strapi.user.username }}</span>
-      <NuxtLink class="border-r px-3" to="/new">Create Post</NuxtLink>
+      <NuxtLink class="border-r px-3" to="/new">Create Group</NuxtLink>
       <button class="pl-3" @click="logout">Logout</button>
     </div>
   </div>
