@@ -26,9 +26,15 @@
             <h3 class="font-semibold text-gray-500">{{ group.srl.level }}</h3>
           </div>
         </div>
-        <button class="w-32 border rounded mt-2 px-3 py-1 sm:mb-0" @click="readPost(group)">
-          Detail
-        </button>
+        <div class="flex justify-between w-full">
+
+          <!-- students ga bisa dipanggil, gua rasa karena 1 group terdiri dari 3 students (kudu v-for?) -->
+          <!-- <p>Anggota:</p>
+            <h3 class="font-semibold text-gray-500">{{ group.students.angkatan }}</h3> -->
+          <button class="w-32 border rounded mt-2 px-3 py-1 sm:mb-0" @click="readPost(group)">
+            Detail
+          </button>
+        </div>
       </div>
     </div>
   </div>
