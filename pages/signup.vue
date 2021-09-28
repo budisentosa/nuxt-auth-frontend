@@ -63,7 +63,7 @@ export default {
         console.log(newUser)
         if (newUser !== null) {
           this.error = ''
-          this.$nuxt.$router.push('/articles')
+          this.$nuxt.$router.push('/groups')
         }
       } catch (error) {
         this.error = error.message

@@ -4,7 +4,7 @@
       <h1 class="title">Welcome To The BlogApp</h1>
       <div class="links">
         <NuxtLink to="/login" class="button--green"> Login </NuxtLink>
-        <NuxtLink to="/articles" class="button--grey"> Continue Free </NuxtLink>
+        <NuxtLink to="/groups" class="button--grey"> Continue Free </NuxtLink>
       </div>
     </div>
   </div>
