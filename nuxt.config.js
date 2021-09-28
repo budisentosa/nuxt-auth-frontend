@@ -39,7 +39,7 @@ export default {
     '@nuxtjs/strapi'
   ],
   strapi: {
-    entities: ['articles'],
+    entities: ['groups'],
   },
   markdownit: {
     preset: 'default',
