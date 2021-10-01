@@ -13,29 +13,38 @@
       <div
         v-for="(group, i) in data"
         :key="i"
-        class="mx-3 p-3 flex flex-col gap-4 bg-white rounded-md shadow-lg "
+        class="mx-3 p-3 flex flex-col gap-2 bg-white rounded-md shadow-lg "
       >
         <div class=" sm:pr-2 sm:text-left w-full flex flex-col gap-3 items-end">
           <div class="flex justify-between w-full">
             <h3 class="font-bold flex">{{ group.groupName }}</h3>
-            <div>
-              <p>Business Type :</p>
-              <h3 class="font-semibold text-gray-500 text-sm">{{ group.type.name }}</h3>
-            </div>
-            <div class="flex gap-2 text-gray-500 font-semibold items-center px-3 py-1 rounded-full  border">
+
+            <div class="flex gap-2 text-gray-200 items-center px-3 py-1 rounded-full bg-gray-800">
               <p>SRL Level:</p>
-              <p class=" text-gray-500 font-semibold">{{ group.srl.level }}</p>
+              <p class=" text-gray-200 font-semibold">{{ group.srl.level }}</p>
             </div>
+
           </div>
         </div>
+        <div class="flex font-semibold items-center gap-3 text-sm">
+          <p>Business Type :</p>
+          <h3 class="font-semibold text-gray-600 text-sm">{{ group.type.name }}</h3>
+        </div>
+        <div class="h-px w-full bg-gray-300"></div>
           <!-- group students -->
-          <div class="px-3 flex gap-2 justify-between items-start">
-            <div v-for="(groupstudent, i2) in group.students" :key="i2">
-              <div>
-                {{groupstudent.studentName}}
-                {{groupstudent.studentNim}}
-              </div>
-              </div>
+          <div class="flex flex-col text-sm font-semibold gap-1 justify-between items-start w-full">
+            <h4>Anggota:</h4>
+            <div class="flex justify-start gap-6">
+                <div v-for="(groupstudent, i2) in group.students" :key="i2">
+                    <h3>
+                    {{groupstudent.studentName}}
+                    </h3>
+                    <p class="text-sm">
+                       NIM: {{groupstudent.studentNim}}
+                    </p>
+                  </div>
+
+            </div>
           </div>
       </div>
     </div>
