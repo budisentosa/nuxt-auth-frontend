@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="h-screen bg-gray-300">
     <Nav class="mx-auto sticky top-0" />
-    <h1 class="text-center my-5">All our groups</h1>
+    <h1 class="text-center font-semibold my-5 uppercase text-2xl">All Groups</h1>
     <div
       v-show="error !== ''"
       class="sticky z-100 border p-5 m-3 top-0 bg-black text-white text-center mx-auto w-4/5 sm:w-4/5 md:w-4/5 lg:w-1/2"
@@ -9,32 +9,34 @@
       <p class="m-1 sm:m-3">{{ error }}</p>
       <button class="button--grey" @click="resetError()">Ok</button>
     </div>
-    <div
-      v-for="(group, i) in data"
-      :key="i"
-      class="sm:flex sm:space-x-5 my-5 rounded-lg shadow-lg mx-auto w-4/5 sm:w-4/5 md:w-4/5 lg:w-1/2"
-    >
-      <div class="p-3 sm:pr-2 sm:text-left w-full flex flex-col gap-3 items-end">
-        <div class="flex justify-between w-full">
-          <h3 class="font-bold">{{ group.groupName }}</h3>
-          <div>
-            <p>Business Type :</p>
-            <h3 class="font-semibold text-gray-500">{{ group.type.name }}</h3>
-          </div>
-          <div>
-            <p>SRL Level:</p>
-            <h3 class="font-semibold text-gray-500">{{ group.srl.level }}</h3>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        v-for="(group, i) in data"
+        :key="i"
+        class="mx-3 p-3 flex flex-col gap-4 bg-white rounded-md shadow-lg "
+      >
+        <div class=" sm:pr-2 sm:text-left w-full flex flex-col gap-3 items-end">
+          <div class="flex justify-between w-full">
+            <h3 class="font-bold flex">{{ group.groupName }}</h3>
+            <div>
+              <p>Business Type :</p>
+              <h3 class="font-semibold text-gray-500 text-sm">{{ group.type.name }}</h3>
+            </div>
+            <div class="flex gap-2 text-gray-500 font-semibold items-center px-3 py-1 rounded-full  border">
+              <p>SRL Level:</p>
+              <p class=" text-gray-500 font-semibold">{{ group.srl.level }}</p>
+            </div>
           </div>
         </div>
-        <div class="flex justify-between w-full">
-
-          <!-- students ga bisa dipanggil, gua rasa karena 1 group terdiri dari 3 students (kudu v-for?) -->
-          <!-- <p>Anggota:</p>
-            <h3 class="font-semibold text-gray-500">{{ group.students.angkatan }}</h3> -->
-          <button class="w-32 border rounded mt-2 px-3 py-1 sm:mb-0" @click="readPost(group)">
-            Detail
-          </button>
-        </div>
+          <!-- group students -->
+          <div class="px-3 flex gap-2 justify-between items-start">
+            <div v-for="(groupstudent, i2) in group.students" :key="i2">
+              <div>
+                {{groupstudent.studentName}}
+                {{groupstudent.studentNim}}
+              </div>
+              </div>
+          </div>
       </div>
     </div>
   </div>
