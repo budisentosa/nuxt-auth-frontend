@@ -50,5 +50,8 @@ export default {
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  env: {
+    strapiBaseUri: process.env.API_URL || "http://localhost:1888"
   }
 }
