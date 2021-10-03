@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div>
-      <h1 class="title">Welcome To The BlogApp</h1>
-      <div class="links">
-        <NuxtLink to="/login" class="button--green"> Login </NuxtLink>
-        <NuxtLink to="/groups" class="button--grey"> Continue Free </NuxtLink>
+      <h1 class="my-12 text-5xl text-center leading-relaxed text-gray-500 font-light ">Student Assessment Management System</h1>
+      <div class="flex flex-col gap-3 md:flex-row mx-auto items-center justify-center">
+        <NuxtLink to="/login" class="text-center w-44 px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:bg-gray-500 hover:text-white"> Login </NuxtLink>
+        <NuxtLink to="/groups" class="text-center w-44 px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:translate-y-3 hover:bg-gray-500 hover:text-white"> Continue </NuxtLink>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@ export default {
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
+/* .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -46,5 +46,5 @@ export default {
 }
 .links {
   padding-top: 15px;
-}
+} */
 </style>
