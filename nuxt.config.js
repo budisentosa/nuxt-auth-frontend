@@ -54,9 +54,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-  generate: {
-    fallback: true
-  },
+  // generate: {
+  //   fallback: true
+  // },
   // test .env setting 1
   env: {
     STRAPI_URL: process.env.STRAPI_URL || 'http://localhost:1337',
