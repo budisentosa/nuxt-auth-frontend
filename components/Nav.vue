@@ -2,7 +2,7 @@
   <div
     class="flex space-x-5 items-center justify-center bg-black text-white py-3 sm:py-5"
   >
-    <NuxtLink to="/articles">Articles</NuxtLink>
+    <NuxtLink to="/groups">Groups</NuxtLink>
     <div v-if="$strapi.user === null">
       <NuxtLink class="border-r px-3" to="/login">Login</NuxtLink>
       <NuxtLink class="border-r px-3" to="/signup">Signup</NuxtLink>
