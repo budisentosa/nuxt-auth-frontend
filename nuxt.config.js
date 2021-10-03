@@ -42,7 +42,7 @@ export default {
   strapi: {
     entities: ['groups'],
     // test env cara url
-    // url: process.env.STRAPI_URL || 'http://localhost:1337',
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
   },
   markdownit: {
     preset: 'default',
@@ -58,11 +58,11 @@ export default {
   //   fallback: true
   // },
   // test .env setting 1
-  env: {
-    STRAPI_URL: process.env.STRAPI_URL || 'http://localhost:1337',
-  },
+  // env: {
+  //   STRAPI_URL: process.env.STRAPI_URL || 'http://localhost:1337',
+  // },
 
-  publicRuntimeConfig: {
-    STRAPI_URL: process.env.STRAPI_URL,
-  },
+  // publicRuntimeConfig: {
+  //   STRAPI_URL: process.env.STRAPI_URL,
+  // },
 }
