@@ -1,7 +1,7 @@
 <template>
   <div class="w-4/5 mx-auto md:w-1/2 text-center my-12 overflow-hidden">
     <form ref="form" @submit="createPost">
-      <h2 class="font-bold text-2xl md:text-4xl mt-5">Create a new post</h2>
+      <h2 class="font-bold text-2xl md:text-4xl mt-5">Create a new Group</h2>
       <div>
         <input
           v-model="form.Title"

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-gray-300">
+  <div class="min-h-screen bg-gray-300 pb-20">
     <Nav class="mx-auto sticky top-0" />
     <h1 class="text-center font-semibold my-5 uppercase text-2xl">All Groups</h1>
     <div

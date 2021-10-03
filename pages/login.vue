@@ -24,7 +24,7 @@
       <div>
         <button
           :disabled="identifier === '' || password === ''"
-          class="button--green"
+          class="text-center w-44 px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:bg-gray-900 hover:text-white"
           type="submit"
         >
           Login
