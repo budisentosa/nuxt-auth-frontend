@@ -31,6 +31,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -40,6 +41,8 @@ export default {
   ],
   strapi: {
     entities: ['groups'],
+    // test env cara url
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
   },
   markdownit: {
     preset: 'default',
@@ -51,7 +54,15 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-  generate: {
-    fallback: true
-  }
+  // generate: {
+  //   fallback: true
+  // },
+  // test .env setting 1
+  // env: {
+  //   STRAPI_URL: process.env.STRAPI_URL || 'http://localhost:1337',
+  // },
+
+  // publicRuntimeConfig: {
+  //   STRAPI_URL: process.env.STRAPI_URL,
+  // },
 }
