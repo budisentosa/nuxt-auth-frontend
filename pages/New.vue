@@ -1,10 +1,13 @@
 <template>
   <div class="w-4/5 mx-auto md:w-1/2 text-center my-12 overflow-hidden">
-    <form ref="form" @submit="createPost">
+    <form
+      ref="form"
+      @submit="createPost"
+    >
       <h2 class="font-bold text-2xl md:text-4xl mt-5">Create a new Group</h2>
       <div>
         <input
-          v-model="form.Title"
+          v-model="form.groupName"
           name="groupName"
           type="text"
           placeholder="Group Name"
@@ -13,7 +16,7 @@
       </div>
       <div>
         <input
-          v-model="form.description"
+          v-model="form.groupDescription"
           name="groupDescription"
           type="text"
           placeholder="group description"
@@ -40,15 +43,16 @@ export default {
   data() {
     return {
       form: {
-        groupName: '',
-        groupDescription: '',
+        groupName: "",
+        groupDescription: "",
         users_permissions_user: this.$strapi.user,
       },
-    }
+    };
   },
   methods: {
     async createPost(e) {
-      const formData = new FormData()
+      console.log("masuk ke cratepopst");
+      const formData = new FormData();
       // let file
       // const formElements = this.$refs.form.elements
       // formElements.forEach((el, i) => {
@@ -57,10 +61,12 @@ export default {
       //   }
       // })
       // formData.append(`files.image`, file, file.name)
-      formData.append('data', JSON.stringify(this.form))
-      e.preventDefault()
-      await this.$strapi.$groups.create(formData)
-      this.$nuxt.$router.push('/groups')
+      console.log(JSON.stringify(this.form));
+      formData.append("data", JSON.stringify(this.form));
+      e.preventDefault();
+      console.log(formData);
+      await this.$strapi.$groups.create(formData);
+      this.$nuxt.$router.push("/groups");
     },
     // assignFileInput() {
     //   const formElements = this.$refs.form.elements
@@ -73,9 +79,9 @@ export default {
   },
   middleware({ $strapi, redirect }) {
     if (!$strapi.user) {
-      redirect('/groups')
+      redirect("/groups");
     }
   },
-}
+};
 </script>
 <style></style>
