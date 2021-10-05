@@ -2,7 +2,7 @@
   <div class="min-h-screen flex justify-center items-center text-center relative mx-auto">
     <img class="absolute inset-y-0 inset-x-auto object-cover w-full h-full opacity-50" src="../assets/img/97363.jpeg" alt="">
     <div class="absolute inset-auto w-3/4  md:left-8 md:w-1/2">
-      <h1 class="p-4 border border-gray-600 my-12 text-4xl text-center leading-relaxed text-gray-600 font-light ">Student Assessment Management System</h1>
+      <h1 class="py-4 px-2 border-2 border-gray-600 my-12 text-3xl md:text-6xl text-center leading-relaxed text-gray-600 font-light tracking-wide ">Student Assessment Management System</h1>
       <div class="flex flex-col gap-12 md:flex-row mx-auto items-center justify-center">
         <NuxtLink to="/login" class="text-center w-44 px-3 py-2 border rounded border-gray-700 text-gray-600 text-medium hover:bg-gray-700 hover:text-white"> Login </NuxtLink>
         <NuxtLink to="/groups" class="text-center w-44 px-3 py-2 border rounded border-gray-700 text-gray-600 text-medium hover:translate-y-3 hover:bg-gray-700 hover:text-white"> Continue </NuxtLink>
