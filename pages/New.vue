@@ -62,7 +62,7 @@
         </label>
       </div>
         <button
-          class="text-center w-full mt-10 mx-auto w-44 px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:bg-gray-900 hover:text-white"
+          class="text-center w-full mt-10 mx-auto px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:bg-gray-900 hover:text-white"
           :disabled="
             form.groupName === '' ||
             form.groupDescription === ''
