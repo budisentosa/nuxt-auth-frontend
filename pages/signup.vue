@@ -1,6 +1,9 @@
 <template>
   <div class="w-4/5 mx-auto md:w-1/2 text-center my-12">
-    <div v-show="error !== ''" class="p-3 border">
+    <div
+      v-show="error !== ''"
+      class="p-3 border"
+    >
       <p>{{ error }}</p>
     </div>
     <h1 class="font-bold text-2xl md:text-4xl mt-5">Signup</h1>
@@ -45,32 +48,33 @@
 export default {
   data() {
     return {
-      email: '',
-      username: '',
-      password: '',
-      error: '',
-    }
+      email: "",
+      username: "",
+      password: "",
+      error: "",
+    };
   },
   methods: {
     async createUser(e) {
-      e.preventDefault()
+      console.log("masuk ke crate uaser");
+      e.preventDefault();
       try {
         const newUser = await this.$strapi.register({
           email: this.email,
           username: this.username,
           password: this.password,
-        })
-        console.log(newUser)
+        });
+        console.log(newUser);
         if (newUser !== null) {
-          this.error = ''
-          this.$nuxt.$router.push('/groups')
+          this.error = "";
+          this.$nuxt.$router.push("/groups");
         }
       } catch (error) {
-        this.error = error.message
+        this.error = error.message;
       }
     },
   },
-  middleware: 'authenticated',
-}
+  middleware: "authenticated",
+};
 </script>
 <style></style>

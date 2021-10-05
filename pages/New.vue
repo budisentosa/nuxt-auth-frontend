@@ -1,10 +1,13 @@
 <template>
   <div class="w-4/5 mx-auto md:w-1/2 text-center my-12 overflow-hidden">
-    <form ref="form" @submit="createPost">
+    <form
+      ref="form"
+      @submit="createPost"
+    >
       <h2 class="font-bold text-2xl md:text-4xl mt-5">Create a new Group</h2>
       <div>
         <input
-          v-model="form.Title"
+          v-model="form.groupName"
           name="groupName"
           type="text"
           placeholder="Group Name"
@@ -13,12 +16,41 @@
       </div>
       <div>
         <input
-          v-model="form.description"
+          v-model="form.groupDescription"
           name="groupDescription"
           type="text"
           placeholder="group description"
           class="p-3 my-3 border w-full"
         />
+      </div>
+      <div>
+        <select v-model="form.srl">
+          <option
+            v-for="(tmp, i) in datasrl2"
+            :key=i
+            :value="tmp.id"
+          >{{ tmp.level }}</option>
+        </select>
+
+        <select v-model="form.type">
+          <option
+            v-for="(tmp, i) in datasrl3"
+            :key="i"
+            :value="tmp.id"
+          >{{ tmp.name }}</option>
+        </select>
+
+        <select
+          v-model="form.students"
+          multiple
+        >
+          <option
+            v-for="(tmp, i) in datasrl4"
+            :key="i"
+            :value="tmp.id"
+          >{{ tmp.studentName }}</option>
+        </select>
+
       </div>
       <div>
         <button
@@ -37,18 +69,30 @@
 </template>
 <script>
 export default {
+  async asyncData({ $strapi, $md }) {
+    // const datasrl = await $strapi.find("srls");
+    const datasrl2 = await $strapi.$srls.find();
+    const datasrl3 = await $strapi.$types.find();
+    const datasrl4 = await $strapi.$students.find();
+    // console.log(datasrl2);
+    return { datasrl2, datasrl3, datasrl4 };
+  },
   data() {
     return {
       form: {
-        groupName: '',
-        groupDescription: '',
+        groupName: "",
+        groupDescription: "",
         users_permissions_user: this.$strapi.user,
+        srl: "",
+        type: "",
+        students: [],
       },
-    }
+    };
   },
   methods: {
     async createPost(e) {
-      const formData = new FormData()
+      console.log("masuk ke cratepopst");
+      const formData = new FormData();
       // let file
       // const formElements = this.$refs.form.elements
       // formElements.forEach((el, i) => {
@@ -57,10 +101,12 @@ export default {
       //   }
       // })
       // formData.append(`files.image`, file, file.name)
-      formData.append('data', JSON.stringify(this.form))
-      e.preventDefault()
-      await this.$strapi.$groups.create(formData)
-      this.$nuxt.$router.push('/groups')
+      console.log(JSON.stringify(this.form));
+      formData.append("data", JSON.stringify(this.form));
+      e.preventDefault();
+      console.log(formData);
+      await this.$strapi.$groups.create(formData);
+      this.$nuxt.$router.push("/groups");
     },
     // assignFileInput() {
     //   const formElements = this.$refs.form.elements
@@ -73,9 +119,9 @@ export default {
   },
   middleware({ $strapi, redirect }) {
     if (!$strapi.user) {
-      redirect('/groups')
+      redirect("/groups");
     }
   },
-}
+};
 </script>
 <style></style>
