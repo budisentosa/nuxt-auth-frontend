@@ -1,60 +1,68 @@
 <template>
-  <div class="w-4/5 mx-auto md:w-1/2 text-center my-12 overflow-hidden">
-    <form
-      ref="form"
-      @submit="createPost"
-    >
-      <h2 class="font-bold text-2xl md:text-4xl mt-5">Create a new Group</h2>
-      <div>
-        <input
-          v-model="form.groupName"
-          name="groupName"
-          type="text"
-          placeholder="Group Name"
-          class="p-3 my-3 border w-full"
-        />
-      </div>
-      <div>
-        <input
-          v-model="form.groupDescription"
-          name="groupDescription"
-          type="text"
-          placeholder="group description"
-          class="p-3 my-3 border w-full"
-        />
-      </div>
-      <div>
-        <select v-model="form.srl">
-          <option
-            v-for="(tmp, i) in datasrl2"
-            :key=i
-            :value="tmp.id"
-          >{{ tmp.level }}</option>
-        </select>
 
-        <select v-model="form.type">
-          <option
-            v-for="(tmp, i) in datasrl3"
-            :key="i"
-            :value="tmp.id"
-          >{{ tmp.name }}</option>
-        </select>
-
-        <select
-          v-model="form.students"
-          multiple
-        >
-          <option
-            v-for="(tmp, i) in datasrl4"
-            :key="i"
-            :value="tmp.id"
-          >{{ tmp.studentName }}</option>
-        </select>
-
-      </div>
+  <div class="w-4/5 mx-auto md:w-1/2 my-12 overflow-hidden">
+    <h2 class="font-bold text-center text-2xl md:text-4xl mt-5">Create a new Group</h2>
+    <form class="mt-8" ref="form" @submit="createPost">
+        <label class="block">
+              <span class="text-gray-700">Nama Kelompok</span>
+              <input
+                v-model="form.groupName"
+                name="groupName"
+                type="text"
+                placeholder="Nama Kelompok"
+                class="form-input mt-1 block p-3 my-3 border w-full"
+              />
+        </label>
+        <label class="block mt-8">
+            <span class="text-gray-700">Deskripsi Kelompok</span>
+            <textarea
+              v-model="form.groupDescription"
+              name="groupDescription"
+              type="text"
+              placeholder="Deskripsi Kelompok"
+              class="form-textarea mt-1 block p-3 my-3 border w-full"
+            />
+        </label>
       <div>
+        <div class="flex justify-between ">
+          <label class="block mt-4 flex-1">
+            <span class="text-gray-700">SRL Level</span>
+            <select class="form-select mt-1 block border" v-model="form.srl">
+              <option
+                v-for="(tmp, i) in datasrl2"
+                :key=i
+                :value="tmp.id"
+              >{{ tmp.level }}</option>
+            </select>
+          </label>
+
+          <label class="block mt-4">
+            <span class="text-gray-700">Business Type</span>
+              <select class="form-select mt-1 block border w-full" v-model="form.type">
+                <option
+                  v-for="(tmp, i) in datasrl3"
+                  :key="i"
+                  :value="tmp.id"
+                >{{ tmp.name }}</option>
+              </select>
+          </label>
+        </div>
+        <label class="block w-full mt-8">
+            <span>Anggota</span>
+          <select class=" mt-1 block border w-full"
+            v-model="form.students"
+            multiple
+          >
+            <option
+              v-for="(tmp, i) in datasrl4"
+              :key="i"
+              :value="tmp.id"
+            >{{ tmp.studentName }}</option>
+          </select>
+        </label>
+      </div>
         <button
-          class="text-center w-44 px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:bg-gray-900 hover:text-white"
+          class="text-center w-full mt-10 mx-auto w-44 px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:bg-gray-900 hover:text-white"
           :disabled="
             form.groupName === '' ||
             form.groupDescription === ''
@@ -63,7 +71,7 @@
         >
           Create
         </button>
-      </div>
+
     </form>
   </div>
 </template>
