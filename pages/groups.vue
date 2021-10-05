@@ -12,32 +12,31 @@
         @click="resetError()"
       >Ok</button>
     </div>
-    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="px-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       <div
         v-for="(group, i) in data"
         :key="i"
         class="mx-3 p-3 flex flex-col gap-2 bg-white rounded-md shadow-lg "
       >
-        <div class=" sm:pr-2 sm:text-left w-full flex flex-col gap-3 items-end">
+        <div class=" sm:pr-2 sm:text-left w-full flex flex-col gap-3 items-end mb-2">
           <div class="flex justify-between w-full">
             <h3 class="font-bold flex">{{ group.groupName }}</h3>
-
-            <div class="flex gap-2 text-gray-200 items-center px-3 py-1 rounded-full bg-gray-800">
+            <div class="flex text-sm gap-2 text-gray-200 items-center px-3 py-1 rounded-full bg-gray-800">
               <p>SRL Level:</p>
-              <p class=" text-gray-200 font-semibold">{{ group.srl.level }}</p>
+              <p class=" text-gray-200 text-sm font-semibold">{{ group.srl.level }}</p>
             </div>
-
           </div>
         </div>
         <div class="flex font-semibold items-center gap-3 text-sm">
           <p>Business Type :</p>
           <h3 class="font-semibold text-gray-600 text-sm">{{ group.type.name }}</h3>
         </div>
-        <div class="h-px w-full bg-gray-300"></div>
+        <hr>
+        <!-- <div class="h-px w-full bg-gray-300"></div> -->
         <!-- group students -->
         <div class="flex flex-col text-sm font-semibold gap-1 justify-between items-start w-full">
           <h4>Anggota:</h4>
-          <div class="flex justify-start gap-6">
+          <div class="flex justify-start gap-6 text-gray-600">
             <div
               v-for="(groupstudent, i2) in group.students"
               :key="i2"
@@ -45,7 +44,7 @@
               <h3>
                 {{groupstudent.studentName}}
               </h3>
-              <p class="text-sm">
+              <p>
                 NIM: {{groupstudent.studentNim}}
               </p>
             </div>

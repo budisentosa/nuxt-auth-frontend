@@ -1,36 +1,38 @@
 <template>
-  <div class="w-4/5 mx-auto md:w-1/2 text-center my-12">
-    <div v-show="error !== ''" class="p-3 border">
-      <p>{{ error }}</p>
+  <div class="relative min-h-screen bg-no-repeat bg-cover bg-left flex justify-center items-center text-center opacity-80 mx-auto" style="background-image: url(https://cdn.pixabay.com/photo/2021/08/22/15/39/kid-6565461_1280.jpg);">
+    <div class="w-4/5 md:w-1/2 max-w-lg text-center mx-auto">
+      <div v-show="error !== ''" class="p-3 border">
+        <p class="text-white">{{ error }}</p>
+      </div>
+      <h1 class="font-semibold text-4xl text-white md:text-4xl mb-5">Login</h1>
+      <form @submit="loginUser">
+        <div>
+          <input
+            v-model="identifier"
+            class="p-3 my-5 border w-full"
+            type="email"
+            placeholder="email"
+          />
+        </div>
+        <div>
+          <input
+            v-model="password"
+            class="p-3 my-5 border w-full"
+            type="password"
+            placeholder="password"
+          />
+        </div>
+        <div>
+          <button
+            :disabled="identifier === '' || password === ''"
+            class="mt-12 text-center text-white boder-white w-full px-3 py-2 border rounded text-medium hover:bg-gray-900 hover:text-white"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+      </form>
     </div>
-    <h1 class="font-bold text-2xl md:text-4xl mt-5">Login</h1>
-    <form @submit="loginUser">
-      <div>
-        <input
-          v-model="identifier"
-          class="p-3 my-5 border w-full"
-          type="email"
-          placeholder="email"
-        />
-      </div>
-      <div>
-        <input
-          v-model="password"
-          class="p-3 my-5 border w-full"
-          type="password"
-          placeholder="password"
-        />
-      </div>
-      <div>
-        <button
-          :disabled="identifier === '' || password === ''"
-          class="text-center w-44 px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:bg-gray-900 hover:text-white"
-          type="submit"
-        >
-          Login
-        </button>
-      </div>
-    </form>
   </div>
 </template>
 <script>
