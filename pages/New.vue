@@ -24,6 +24,35 @@
         />
       </div>
       <div>
+        <select v-model="form.srl">
+          <option
+            v-for="(tmp, i) in datasrl2"
+            :key=i
+            :value="tmp.id"
+          >{{ tmp.level }}</option>
+        </select>
+
+        <select v-model="form.type">
+          <option
+            v-for="(tmp, i) in datasrl3"
+            :key="i"
+            :value="tmp.id"
+          >{{ tmp.name }}</option>
+        </select>
+
+        <select
+          v-model="form.students"
+          multiple
+        >
+          <option
+            v-for="(tmp, i) in datasrl4"
+            :key="i"
+            :value="tmp.id"
+          >{{ tmp.studentName }}</option>
+        </select>
+
+      </div>
+      <div>
         <button
           class="text-center w-44 px-3 py-2 border rounded border-gray-600 text-gray-600 text-medium hover:bg-gray-900 hover:text-white"
           :disabled="
@@ -40,12 +69,23 @@
 </template>
 <script>
 export default {
+  async asyncData({ $strapi, $md }) {
+    // const datasrl = await $strapi.find("srls");
+    const datasrl2 = await $strapi.$srls.find();
+    const datasrl3 = await $strapi.$types.find();
+    const datasrl4 = await $strapi.$students.find();
+    // console.log(datasrl2);
+    return { datasrl2, datasrl3, datasrl4 };
+  },
   data() {
     return {
       form: {
         groupName: "",
         groupDescription: "",
         users_permissions_user: this.$strapi.user,
+        srl: "",
+        type: "",
+        students: [],
       },
     };
   },

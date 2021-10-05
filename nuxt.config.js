@@ -40,7 +40,7 @@ export default {
     '@nuxtjs/strapi'
   ],
   strapi: {
-    entities: ['groups'],
+    entities: ['groups', 'srls', 'types', 'students'],
     // test env cara url
     url: process.env.STRAPI_URL || 'http://localhost:1337',
   },
