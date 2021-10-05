@@ -26,7 +26,7 @@
       <div>
         <div class="flex justify-between ">
           <label class="block mt-4 flex-1">
-            <span class="text-gray-700">SRL Levelna</span>
+            <span class="text-gray-700">SRL Level</span>
             <select class="form-select mt-1 block border" v-model="form.srl">
               <option
                 v-for="(tmp, i) in datasrl2"
