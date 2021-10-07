@@ -28,7 +28,7 @@
               <sui-dropdown
               multiple
               fluid
-              :options="skills"
+              :options="states"
               placeholder='SRL'
               search
               selection
@@ -48,7 +48,7 @@
     data() {
       return {
         current: null,
-        skills: [
+        states: [
           {key:'AL', value:'AL', text:'satu'},
           {key:'NC', value:'NC', text:'dua'},
           {key:'RI', value:'RI', text:'tiga'},
